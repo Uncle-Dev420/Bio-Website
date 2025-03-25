@@ -1,3 +1,19 @@
+document.addEventListener('DOMContentLoaded', () => {
+// Initialize canvas and animations
+    setCanvasSize();
+    initializeBalls();
+    animate();
+    
+    // Initialize superhero bot
+    new Superhero();
+});
+
+// Add this resize handler
+window.addEventListener('resize', () => {
+    setCanvasSize();
+    initializeBalls();
+});
+
 // Mobile Menu Toggle
 function toggleNav() {
     const nav = document.querySelector('nav');
