@@ -2,37 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Dipan Adhikari - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-    <!-- Canvas for Bouncing Balls -->
     <canvas id="bouncing-balls"></canvas>
+
     <!-- Mobile Menu Button -->
-<div class="mobile-menu">
-    <i class="fas fa-bars"></i>
-  </div>
-  
-  <!-- Updated Navigation -->
-  <nav>
-    <div class="nav-content">
-      <!-- ... existing content ... -->
-      <ul class="desktop-menu">
-        <!-- ... menu items ... -->
-      </ul>
+    <div class="mobile-menu" onclick="toggleNav()">
+        <i class="fas fa-bars"></i>
     </div>
-  </nav>
-  
-    <!-- Navigation Bar -->
+
+    <!-- Navigation -->
     <nav>
         <div class="nav-content">
             <div class="logo">Dipan Adhikari</div>
-            <ul>
+            <ul class="desktop-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -50,106 +38,81 @@
                 <a href="#contact" class="btn">Contact Me</a>
             </div>
             <div class="profile-img">
-                <img src="image/IMG_1815.png" alt="Dipan Adhikari">
+                <img src="images/profile.jpg" alt="Dipan Adhikari">
             </div>
         </div>
     </section>
+
     <!-- Services Section -->
-<section id="services" class="page">
-    <div class="content">
-        <h2>My Services</h2>
-        <div class="service-cards">
-            <div class="card">
-                <i class="fas fa-cogs"></i>
-                <h3>Management</h3>
-                <p>Strategic planning and operational leadership</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Brand Consulting</h3>
-                <p>Digital & traditional marketing strategies</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-calculator"></i>
-                <h3>Accounting</h3>
-                <p>Financial management & reporting</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-website"></i>
-                <h3>Website Building </h3>
-                <p>Build professional Website</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-website"></i>
-                <h3>Digital Marketing </h3>
-                <p>Create & Costomize Ad's, Ad's Boosting, Strategic Analysis</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-website"></i>
-                <h3>S.E.O</h3>
-                <p>Search Engine Optimization </p>
+    <section id="services" class="page">
+        <div class="content">
+            <h2>My Services</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Management</h3>
+                    <p>Strategic planning and operational leadership</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Brand Consulting</h3>
+                    <p>Digital & traditional marketing strategies</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Accounting</h3>
+                    <p>Financial management & reporting</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Website Development</h3>
+                    <p>Professional website building</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Digital Marketing</h3>
+                    <p>Ads creation, boosting & analysis</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO</h3>
+                    <p>Search Engine Optimization</p>
+                </div>
             </div>
         </div>
-    </div>         
-</section>
+    </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="page">
-    <div class="content">
-        <h2>Portfolio</h2>
-            <div class="portfolio-card">
-                <div class="card">
-                    <img src="image/nlg logo .png">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="page">
+        <div class="content">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="images/nlg-logo.jpg" alt="NLG Insurance">
                     <h3>NLG Insurance Company Ltd</h3>
                     <p>Branch In-charge</p>
                 </div>
-                <div class="card">
-                    <img src="">
-                    <h3>Verse Engineering Consultancy & Builders</h3>
+                <div class="portfolio-card">
+                    <img src="images/verse-engineering.jpg" alt="Verse Engineering">
+                    <h3>Verse Engineering Consultancy</h3>
                     <p>Senior Marketing Manager</p>
                 </div>
-                <div class="card">
-                    <img src="">
-                    <h3>Verse Engineering Consultancy & Builders</h3>
-                    <p>Senior Marketing Manager</p>
-                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="page">
-    <div class="content">
-        <h2>Get in Touch</h2>
-        <form>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Message" rows="5"></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </div>
-</section>
-
-    <!-- Superhero Bot -->
-    <div id="superhero-bot" class="superhero-bot">
-        <model-viewer
-            src="models/superhero-bot.glb"
-            alt="Superhero Bot"
-            ar
-            animation-name="Fall"
-            animation-crossfade-duration="500"
-            autoplay
-            camera-controls
-            style="transform: rotateY(180deg);"> <!-- Ensure it faces forward -->
-        </model-viewer>
-    </div>
-    
-
-    <!-- Thinking Bubble -->
-    <div id="thinking-bubble" class="thinking-bubble">
-     <a href="DIPAN ADHIKARI CV .pdf" target="_blank">My Resume</a>
-
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="page">
+        <div class="content">
+            <h2>Get in Touch</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
