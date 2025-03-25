@@ -301,3 +301,85 @@ h2 {
   gap: 30px;
   padding: 20px;
 }
+@media (max-width: 480px) {
+  /* About Section */
+  #about .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-img img {
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+  }
+
+  /* Navigation */
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 5px 10px;
+  }
+
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  /* Text Sizing */
+  .about-text h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  /* Form Adjustments */
+  form input, 
+  form textarea {
+    font-size: 16px;
+  }
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  color: white;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  nav.active .desktop-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    background: rgba(26, 13, 46, 0.95);
+    width: 100%;
+  }
+}
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+form input,
+form textarea {
+  font-size: 16px;
+  min-height: 44px; /* Minimum touch target size */
+}
