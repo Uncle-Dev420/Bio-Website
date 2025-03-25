@@ -1,13 +1,30 @@
-// Set canvas size
+// Mobile Menu Toggle
+function toggleNav() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (event) => {
+    const nav = document.querySelector('nav');
+    if (!event.target.closest('nav') && !event.target.closest('.mobile-menu')) {
+        nav.classList.remove('active');
+    }
+});
+
+// Canvas Initialization
 const canvas = document.getElementById('bouncing-balls');
 const ctx = canvas.getContext('2d');
+let balls = [];
+let animationFrameId;
 
+// Responsive Setup
 function setCanvasSize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
 
-// Ball class
+// Ball Class
 class Ball {
     constructor(x, y, dx, dy, radius, color) {
         this.x = x;
@@ -46,22 +63,44 @@ class Superhero {
         this.element = document.getElementById('superhero-bot');
         this.modelViewer = this.element.querySelector('model-viewer');
         this.thinkingBubble = document.getElementById('thinking-bubble');
+        this.isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        
+        this.init();
+    }
 
-        this.modelViewer.addEventListener('error', () => {
-            console.error('Model failed to load');
-            this.element.innerHTML = `<div style="color:white">Model failed to load</div>`;
-        });
-
-        this.x = 50; // Start from left side
-        this.y = -200; // Start off-screen top
+    init() {
+        this.x = 50;
+        this.y = -200;
         this.velocityY = 0;
         this.gravity = 1;
         this.bounce = -0.5;
         this.isWalking = false;
         this.reachedRight = false;
 
+        this.modelViewer.addEventListener('error', () => {
+            this.element.innerHTML = `<div style="color:white">3D Model Loading...</div>`;
+        });
+
+        this.addEventListeners();
         this.updatePosition();
-        this.addRotationEvents();
+    }
+
+    addEventListeners() {
+        if (this.isMobile) {
+            this.element.addEventListener('touchstart', () => this.handleInteraction());
+        } else {
+            this.element.addEventListener('mouseenter', () => this.handleInteraction());
+            this.element.addEventListener('mouseleave', () => this.resetRotation());
+        }
+    }
+
+    handleInteraction() {
+        this.modelViewer.style.transform = 'rotateY(180deg)';
+        setTimeout(() => this.resetRotation(), 1000);
+    }
+
+    resetRotation() {
+        this.modelViewer.style.transform = 'rotateY(0deg)';
     }
 
     updatePosition() {
@@ -90,63 +129,73 @@ class Superhero {
     startWalking() {
         this.isWalking = true;
         this.modelViewer.animationName = 'Walk';
+        this.animateWalk();
+    }
 
-        this.walkInterval = setInterval(() => {
-            if (this.x < window.innerWidth - 150) {
-                this.x += 3;
-                this.updatePosition();
-            } else {
-                clearInterval(this.walkInterval);
-                this.reachedRight = true;
-                this.showThinkingBubble();
-            }
-        }, 3);
+    animateWalk() {
+        if (this.x < window.innerWidth - 150) {
+            this.x += 3;
+            this.updatePosition();
+            requestAnimationFrame(() => this.animateWalk());
+        } else {
+            this.reachedRight = true;
+            this.showThinkingBubble();
+        }
     }
 
     showThinkingBubble() {
         this.thinkingBubble.style.display = 'block';
-    }
-
-    addRotationEvents() {
-        this.element.addEventListener('mouseenter', () => {
-            this.modelViewer.style.transform = 'rotateY(180deg)';
-        });
-
-        this.element.addEventListener('mouseleave', () => {
-            this.modelViewer.style.transform = 'rotateY(0deg)';
-        });
+        this.thinkingBubble.style.right = '20px';
     }
 }
 
-// Initialize objects
-const balls = [];
-const superhero = new Superhero();
-const colors = ['rgba(239, 80, 80, 0.7)', 'rgba(74, 44, 109, 0.6)', 'rgba(106, 74, 141, 0.6)', 'rgba(229, 90, 90, 0.6)'];
-
+// Initialize Objects
 function initializeBalls() {
-    balls.length = 0;
-    for (let i = 0; i < 100; i++) {
-        const radius = Math.random() * 40 + 20;
+    balls = [];
+    const colors = [
+        'rgba(239, 80, 80, 0.7)',
+        'rgba(74, 44, 109, 0.6)',
+        'rgba(106, 74, 141, 0.6)',
+        'rgba(229, 90, 90, 0.6)'
+    ];
+
+    for (let i = 0; i < 30; i++) { // Reduced number for mobile performance
+        const radius = Math.random() * 30 + 15;
         const x = Math.random() * (canvas.width - radius * 2) + radius;
         const y = Math.random() * (canvas.height - radius * 2) + radius;
-        const dx = (Math.random() - 0.5) * 8;
-        const dy = (Math.random() - 0.5) * 8;
+        const dx = (Math.random() - 0.5) * 6;
+        const dy = (Math.random() - 0.5) * 6;
         const color = colors[Math.floor(Math.random() * colors.length)];
         balls.push(new Ball(x, y, dx, dy, radius, color));
     }
 }
 
-// Animation loop
+// Animation Loop
 function animate() {
-    requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     balls.forEach(ball => ball.update());
-
+    
     if (!superhero.isWalking) {
         superhero.fall();
     }
+    animationFrameId = requestAnimationFrame(animate);
 }
 
-setCanvasSize();
-initializeBalls();
-animate();
+// Start Animation
+function init() {
+    setCanvasSize();
+    initializeBalls();
+    const superhero = new Superhero();
+    animate();
+}
+
+// Handle Resize
+window.addEventListener('resize', () => {
+    setCanvasSize();
+    initializeBalls();
+    cancelAnimationFrame(animationFrameId);
+    animate();
+});
+
+// Initialize Everything
+document.addEventListener('DOMContentLoaded', init);
