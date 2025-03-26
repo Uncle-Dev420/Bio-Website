@@ -2,118 +2,179 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dipan Adhikari - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipan Adhikari - Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas id="bouncing-balls"></canvas>
+    <div class="particle-background" id="particles"></div>
 
-    <!-- Mobile Menu Button -->
-    <div class="mobile-menu" onclick="toggleNav()">
-        <i class="fas fa-bars"></i>
-    </div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-content">
+    <nav class="main-nav">
+        <div class="nav-container">
             <div class="logo">Dipan Adhikari</div>
-            <ul class="desktop-menu">
+            <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Expertise</a></li>
+                <li><a href="#portfolio">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="mobile-menu" onclick="toggleNav()">
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+            </div>
         </div>
     </nav>
 
-    <!-- About Section -->
-    <section id="about" class="page">
-        <div class="content">
-            <div class="about-text">
-                <h1>Hello, I'm <span>Dipan Adhikari</span></h1>
-                <p>Multi-faceted professional with 5 years of experience across non-life insurance, hospitality, and engineering industries. Skilled in general management, accounting, and marketing leadership.</p>
-                <a href="#contact" class="btn">Contact Me</a>
-            </div>
-            <div class="profile-img">
-                <img src="image/IMG_1815.png" alt="Dipan Adhikari">
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="page">
-        <div class="content">
-            <h2>My Services</h2>
-            <div class="service-cards">
-                <div class="card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Management</h3>
-                    <p>Strategic planning and operational leadership</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Brand Consulting</h3>
-                    <p>Digital & traditional marketing strategies</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-calculator"></i>
-                    <h3>Accounting</h3>
-                    <p>Financial management & reporting</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Website Development</h3>
-                    <p>Professional website building</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-bullhorn"></i>
-                    <h3>Digital Marketing</h3>
-                    <p>Ads creation, boosting & analysis</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-search"></i>
-                    <h3>SEO</h3>
-                    <p>Search Engine Optimization</p>
+    <main>
+        <section id="about" class="section">
+            <div class="section-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h1 class="headline">Strategic Leader &<br><span class="highlight">Multidisciplinary Expert</span></h1>
+                        <p class="lead-text">Driving organizational success through 5+ years of cross-industry leadership in insurance, hospitality, and engineering sectors.</p>
+                        <a href="#contact" class="cta-button">Schedule Consultation</a>
+                    </div>
+                    <div class="profile-image">
+                        <img src="image/IMG_1815.png" alt="Dipan Adhikari">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="page">
-        <div class="content">
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <img src="image/nlg logo .png" alt="NLG Insurance">
-                    <h3>NLG Insurance Company Ltd</h3>
-                    <p>Branch In-charge</p>
-                </div>
-                <div class="portfolio-card">
-                    <img src="images/verse-engineering.jpg" alt="Verse Engineering">
-                    <h3>Verse Engineering Consultancy</h3>
-                    <p>Senior Marketing Manager</p>
+        <section id="services" class="section">
+            <div class="section-container">
+                <h2 class="section-title">Professional Expertise</h2>
+                <div class="expertise-grid">
+                    <article class="expertise-card">
+                        <i class="fas fa-chess-king"></i>
+                        <h3>Executive Leadership</h3>
+                        <p>Strategic operational management & organizational development</p>
+                    </article>
+                    <article class="expertise-card">
+                        <i class="fas fa-chart-network"></i>
+                        <h3>Brand Strategy</h3>
+                        <p>Integrated marketing solutions across digital & traditional channels</p>
+                    </article>
+                    <article class="expertise-card">
+                        <i class="fas fa-abacus"></i>
+                        <h3>Financial Governance</h3>
+                        <p>Comprehensive accounting & fiscal leadership</p>
+                    </article>
+                    <article class="expertise-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Technical Solutions</h3>
+                        <p>Full-stack development & digital infrastructure</p>
+                    </article>
+                    <article class="expertise-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Digital Acceleration</h3>
+                        <p>Performance-driven marketing campaigns & analytics</p>
+                    </article>
+                    <article class="expertise-card">
+                        <i class="fas fa-search-plus"></i>
+                        <h3>Technical SEO</h3>
+                        <p>Search engine optimization & visibility enhancement</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="page">
-        <div class="content">
-            <h2>Get in Touch</h2>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" rows="5" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+        <section id="portfolio" class="section">
+            <div class="section-container">
+                <h2 class="section-title">Selected Engagements</h2>
+                <div class="portfolio-grid">
+                    <article class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/nlg-logo.png" alt="NLG Insurance">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>NLG Insurance Company Ltd</h3>
+                            <p>Branch Leadership & Operational Excellence</p>
+                        </div>
+                    </article>
+                    <article class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/verse-engineering.jpg" alt="Verse Engineering">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Verse Engineering Consultancy</h3>
+                            <p>Market Expansion Strategy</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
+        <section id="contact" class="section">
+            <div class="section-container">
+                <h2 class="section-title">Strategic Partnership Inquiry</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" required>
+                        <label>Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" required>
+                        <label>Professional Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea required></textarea>
+                        <label>Project Requirements</label>
+                    </div>
+                    <button type="submit" class="cta-button">Initiate Collaboration</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particle Network Initialization
+        particlesJS('particles', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#6366f1' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'bounce',
+                    bounce: true
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Mobile Navigation Toggle
+        function toggleNav() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+
+        // Smooth Scroll Behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
