@@ -302,3 +302,10 @@ form textarea {
     height: 150px;
   }
 }
+#bouncing-balls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+}
