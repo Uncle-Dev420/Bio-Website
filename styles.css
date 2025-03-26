@@ -16,10 +16,8 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: -1;
-  background: linear-gradient(135deg, #150135, #2E1A47);
+  background: transparent !important;
 }
 
 /* Navigation Bar */
@@ -303,26 +301,4 @@ form textarea {
   .portfolio-card img {
     height: 150px;
   }
- 
-#bouncing-balls {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-
-.superhero-bot {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 120px;
-    height: 120px;
-    z-index: 1001;
-}
-
-
-model-viewer {
-    background: transparent;
-}
 }
